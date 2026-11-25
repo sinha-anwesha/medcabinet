@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tell Us Your Needs | MedCabinet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="" id="top">
+<header>
+  <nav class="nav">
+    <a class="brand" href="index.html">MedCabinet</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="medicines.html">Medicines</a></li>
+      <li><a href="how-medicines-work.html">How Medicines Work</a></li>
+      <li><a href="drug-development.html">Drug Development</a></li>
+      <li><a class="nav-cta" href="needs.html">Tell Us Your Needs</a></li>
+    </ul>
+  </nav>
+</header>
+<marquee class="notice" behavior="scroll" direction="left" scrollamount="5">&#128226; For education only &ndash; this is NOT a doctor's prescription. Always ask a doctor or pharmacist before taking any medicine. Read the label. Never share prescription medicines.</marquee>
+<main>
+  <div class="intro">
+    <h1>Tell Us Your Needs</h1>
+    <p>Answer these few questions so we know what you want to learn and how you like to learn it.</p>
+  </div>
+  <form class="form-card" action="thanks.html" method="get">
+
+    <fieldset>
+      <legend>About you</legend>
+      <label for="name">Your name (optional)</label>
+      <input type="text" id="name" name="name" placeholder="For example: Riya">
+      <label for="who">I am a</label>
+      <select id="who" name="who" required>
+        <option value="">Choose one</option>
+        <option value="student">School or college student</option>
+        <option value="parent">Parent or guardian</option>
+        <option value="caregiver">Caregiver</option>
+        <option value="curious">Just curious</option>
+      </select>
+    </fieldset>
+
+    <fieldset>
+      <legend>What would you like to learn about? (choose any)</legend>
+      <div class="checks">
+        <label><input type="checkbox" name="topic" value="pain"> Pain &amp; Fever</label>
+        <label><input type="checkbox" name="topic" value="antibiotics"> Antibiotics</label>
+        <label><input type="checkbox" name="topic" value="allergy"> Allergy &amp; Breathing</label>
+        <label><input type="checkbox" name="topic" value="stomach"> Stomach &amp; Digestion</label>
+        <label><input type="checkbox" name="topic" value="longterm"> Long-term Conditions</label>
+        <label><input type="checkbox" name="topic" value="how"> How medicines work</label>
+        <label><input type="checkbox" name="topic" value="development"> Drug development</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>How much detail do you want?</legend>
+      <div class="checks">
+        <label><input type="radio" name="detail" value="basic" required> Very basic</label>
+        <label><input type="radio" name="detail" value="medium"> A little more</label>
+        <label><input type="radio" name="detail" value="deep"> As much as possible</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>What helps you learn best?</legend>
+      <div class="checks">
+        <label><input type="radio" name="style" value="cards" required> Short cards</label>
+        <label><input type="radio" name="style" value="steps"> Step-by-step lists</label>
+        <label><input type="radio" name="style" value="pictures"> Pictures and diagrams</label>
+      </div>
+    </fieldset>
+
+    <label for="q">Anything else you want to know? (optional)</label>
+    <textarea id="q" name="question" rows="4" placeholder="Write your question here"></textarea>
+
+    <p class="note">Please do not write personal health details or ask for medical advice. This website is only for education.</p>
+
+    <button type="submit" class="btn btn-solid">Send my answers</button>
+    <button type="reset" class="btn">Clear the form</button>
+  </form>
+</main>
+<a class="to-top" href="#top">&uarr; Top</a>
+<footer>
+  <p>MedCabinet &ndash; Look Beyond the Label</p>
+  <p>For education and general awareness only. This website is not a doctor's prescription. It gives general information only, not medical advice, exact doses or treatment recommendations. Please ask a doctor or pharmacist about your own medicines.</p>
+</footer>
+</body>
+</html>

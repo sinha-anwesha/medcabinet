@@ -1,0 +1,203 @@
+/* MedCabinet - common stylesheet used by all pages */
+
+/* 1. Colours in one place. Change them here and every page updates. */
+:root {
+  --ink: #17324d;
+  --muted: #5a7185;
+  --blue: #1d6fb8;
+  --green: #138a6c;
+  --paper: #f2f8fb;
+  --mint: #e3f4ee;
+  --line: #dbe7ee;
+  --c: #1d6fb8;               /* "current" colour, changes for each category */
+}
+/* Each category has its own colour */
+.c-pain    { --c: #cf4532; }
+.c-anti    { --c: #2a74b8; }
+.c-allergy { --c: #7d4fc0; }
+.c-stomach { --c: #b45f06; }
+.c-long    { --c: #0f7f6b; }
+
+/* 2. Basic page settings */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Poppins, "Segoe UI", Arial, sans-serif;
+  line-height: 1.65;
+  color: var(--ink);
+  background: linear-gradient(180deg, #e3f1f7 0, var(--paper) 340px);
+}
+h1, h2, h3 { line-height: 1.25; }
+h1 { font-size: 2.4rem; margin: 0 0 10px; }
+h2 { font-size: 1.6rem; margin: 40px 0 16px; }
+p { max-width: 70ch; }
+a { color: var(--blue); }
+a:focus-visible, button:focus-visible, summary:focus-visible,
+input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid #f5b700; outline-offset: 2px;
+}
+
+/* 3. Navigation bar (stays at the top while scrolling) */
+header { background: #fff; box-shadow: 0 2px 10px rgba(23, 50, 77, 0.1); position: sticky; top: 0; z-index: 10; }
+.nav {
+  max-width: 1100px; margin: 0 auto; padding: 12px 20px;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;
+}
+.brand { font-size: 1.5rem; font-weight: 700; color: var(--blue); text-decoration: none; }
+.nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.nav li a { display: block; padding: 8px 16px; border-radius: 30px; text-decoration: none; color: var(--ink); font-weight: 500; }
+.nav li a:hover { background: var(--mint); }
+.nav li a.active { background: var(--blue); color: #fff; }
+.nav li a.nav-cta { background: var(--green); color: #fff; }
+
+/* 4. Page layout */
+main { max-width: 1100px; margin: 0 auto; padding: 32px 20px 50px; }
+.intro { margin-bottom: 24px; }
+
+/* 5. Buttons */
+.btn {
+  display: inline-block; margin: 6px 8px 0 0; padding: 10px 24px;
+  border-radius: 30px; border: 2px solid var(--blue); background: #fff; color: var(--blue);
+  font: inherit; font-weight: 600; text-decoration: none; cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(23, 50, 77, 0.2); }
+.btn-solid { background: var(--c); border-color: var(--c); color: #fff; }
+.btn-white { background: #fff; border-color: #fff; color: var(--ink); }
+.btn-ghost { background: transparent; border-color: #fff; color: #fff; }
+.small { padding: 5px 16px; font-size: 0.9rem; }
+
+/* 6. Home page hero */
+.hero {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 32px;
+  padding: 44px 36px; border-radius: 22px; color: #fff;
+  background: linear-gradient(135deg, #1d6fb8 0%, #138a6c 100%);
+  box-shadow: 0 14px 30px rgba(29, 111, 184, 0.25);
+}
+.hero h1 { font-size: 3rem; color: #fff; }
+.hero p { color: #eaf6f3; }
+.hero .tagline { font-size: 1.3rem; font-weight: 600; color: #fff; }
+.hero-text { flex: 1 1 340px; }
+.label-box {
+  flex: 1 1 260px; max-width: 340px; background: #fff; color: var(--ink);
+  border: 3px dashed var(--blue); border-radius: 14px; padding: 20px;
+  transform: rotate(2deg); box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+.label-box .row { padding: 8px 0; border-bottom: 1px solid var(--line); }
+.label-box .row:last-child { border-bottom: none; }
+.label-box small { display: block; color: var(--muted); }
+.label-box .hidden { color: var(--green); font-weight: 600; }
+
+/* 7. Category cards (big coloured links) */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 22px; }
+.cat-card {
+  display: block; text-decoration: none; color: var(--ink); background: #fff;
+  border-radius: 16px; border-top: 6px solid var(--c); padding: 22px;
+  box-shadow: 0 4px 14px rgba(23, 50, 77, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.cat-card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(23, 50, 77, 0.18); }
+.cat-card .icon {
+  width: 54px; height: 54px; border-radius: 50%; background: var(--c);
+  display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 10px;
+}
+.cat-card h3 { margin: 4px 0; }
+.cat-card p { margin: 6px 0; font-size: 0.95rem; }
+.cat-card .count { color: var(--c); font-weight: 600; font-size: 0.9rem; }
+
+/* 8. Category page banner */
+.banner { background: var(--c); color: #fff; border-radius: 20px; padding: 28px 32px; margin-bottom: 28px; }
+.banner h1 { color: #fff; margin-top: 14px; }
+.banner p { margin: 0; color: #fff; }
+
+/* 9. Medicine cards */
+.card {
+  background: #fff; border-radius: 14px; border-left: 6px solid var(--c); padding: 20px;
+  box-shadow: 0 4px 14px rgba(23, 50, 77, 0.1);
+}
+.card h3 { margin: 8px 0; font-size: 1.3rem; }
+.card p { margin: 6px 0; font-size: 0.95rem; }
+.tag { display: inline-block; padding: 2px 12px; border-radius: 20px; background: var(--c); color: #fff; font-size: 0.8rem; }
+
+/* Working "In simple words" button (HTML details/summary, no JavaScript) */
+details { margin-top: 12px; }
+summary {
+  display: inline-block; list-style: none; cursor: pointer; padding: 6px 16px; border-radius: 20px;
+  border: 2px solid var(--c); color: var(--c); font-weight: 600; font-size: 0.9rem;
+}
+summary::-webkit-details-marker { display: none; }
+summary::after { content: " \25BC"; font-size: 0.7rem; }
+details[open] summary { background: var(--c); color: #fff; }
+details[open] summary::after { content: " \25B2"; }
+details p { background: var(--paper); border-radius: 10px; padding: 10px 14px; margin-top: 10px; }
+
+/* 10. Step lists */
+.steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+.steps li {
+  counter-increment: step; position: relative; background: #fff; border-radius: 14px;
+  padding: 18px 18px 18px 70px; margin-bottom: 28px; box-shadow: 0 4px 14px rgba(23, 50, 77, 0.1);
+}
+.steps li::before {
+  content: counter(step); position: absolute; left: 16px; top: 16px; width: 40px; height: 40px;
+  border-radius: 50%; background: var(--blue); color: #fff; text-align: center; line-height: 40px; font-weight: 700;
+}
+.steps li:nth-child(even)::before { background: var(--green); }
+.steps li:not(:last-child)::after { content: "\25BC"; position: absolute; left: 27px; bottom: -26px; color: var(--green); }
+.steps h3 { margin: 0 0 4px; font-size: 1.15rem; }
+.steps p { margin: 0; }
+.note { background: var(--mint); border-left: 5px solid var(--green); border-radius: 10px; padding: 14px 18px; margin-top: 28px; }
+
+/* 11. Banner asking people to fill the form */
+.cta {
+  background: linear-gradient(135deg, #7d4fc0, #2a74b8); color: #fff; text-align: center;
+  border-radius: 20px; padding: 34px 24px; margin-top: 44px;
+}
+.cta h2 { margin-top: 0; color: #fff; }
+.cta p { margin: 8px auto 14px; }
+.pager { margin-top: 32px; }
+
+/* 12. Form */
+.form-card { background: #fff; border-radius: 18px; padding: 28px; max-width: 760px; box-shadow: 0 6px 20px rgba(23, 50, 77, 0.12); }
+fieldset { border: 2px solid var(--line); border-radius: 12px; margin: 0 0 20px; padding: 14px 18px 18px; }
+legend { font-weight: 600; padding: 0 8px; color: var(--blue); }
+.form-card label { display: block; margin: 10px 0 4px; }
+input[type="text"], select, textarea {
+  width: 100%; padding: 10px 12px; border: 2px solid var(--line); border-radius: 10px; font: inherit;
+}
+.checks { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 0 16px; }
+.form-card .checks label { display: flex; align-items: center; gap: 8px; margin: 6px 0; }
+input[type="checkbox"], input[type="radio"] { accent-color: var(--green); width: 18px; height: 18px; }
+
+/* 13. Back to top button and footer */
+.to-top {
+  position: fixed; right: 18px; bottom: 18px; z-index: 20; padding: 8px 16px; border-radius: 30px;
+  background: var(--green); color: #fff; text-decoration: none; font-weight: 600; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+footer { background: linear-gradient(135deg, #17324d, #1d4f7a); color: #dbe9ec; text-align: center; padding: 24px 20px; font-size: 0.9rem; }
+footer p { margin: 4px auto; }
+
+/* 14. Small screens and reduced motion */
+@media (max-width: 600px) {
+  h1, .hero h1 { font-size: 2rem; }
+  .nav { justify-content: center; }
+  .hero { padding: 28px 20px; }
+  .label-box { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+
+/* 15. Scrolling notice (marquee) */
+.notice { background: #fff3c4; color: #5c4400; padding: 8px 0; font-weight: 600; border-bottom: 2px solid #f5b700; }
+
+/* 16. "Who can take it & how often" dropdown */
+.guide summary { border-color: var(--blue); color: var(--blue); }
+.guide[open] summary { background: var(--blue); color: #fff; }
+.guide-box { background: var(--paper); border-radius: 10px; padding: 10px 14px; margin-top: 10px; }
+.guide-box dl { margin: 0; }
+.guide-box dt { font-weight: 600; color: var(--blue); margin-top: 8px; font-size: 0.9rem; }
+.guide-box dd { margin: 0 0 4px; font-size: 0.9rem; }
+.guide-box p.fine { background: none; padding: 0; margin: 10px 0 0; font-size: 0.8rem; color: var(--muted); font-style: italic; }
+.banner + .note { margin: 0 0 24px; }
